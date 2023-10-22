@@ -18,9 +18,20 @@ const RootLayout = () => {
           headerStyle: {
             backgroundColor: "#f472b6",
           },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
         }}
-      />
-      <StatusBar />
+      >
+        <Stack.Screen
+          name="(main)"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
+      <StatusBar style="auto" hidden={false} />
     </TRPCProvider>
   );
 };

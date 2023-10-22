@@ -1,11 +1,18 @@
 import React from "react";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Button,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, Stack } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
 
-import { api } from "~/utils/api";
 import type { RouterOutputs } from "~/utils/api";
+import { api } from "~/utils/api";
 
 function PostCard(props: {
   post: RouterOutputs["post"]["all"][number];
@@ -77,7 +84,7 @@ function CreatePost() {
         </Text>
       )}
       <TouchableOpacity
-        className="rounded bg-pink-400 p-2"
+        className="rounded-2xl bg-pink-400 p-2"
         onPress={() => {
           mutate({
             title,
@@ -85,7 +92,9 @@ function CreatePost() {
           });
         }}
       >
-        <Text className="font-semibold text-white">Publish post</Text>
+        <Text className="text-center font-semibold text-white">
+          Publish post
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -94,7 +103,16 @@ function CreatePost() {
 const Index = () => {
   const utils = api.useContext();
 
-  const postQuery = api.post.all.useQuery();
+  // const postQuery = api.post.all.useQuery();
+  const data = [
+    {
+      id: 1,
+      title: "Title some",
+      content: "Content some",
+      createdAt: new Date(Date.now()),
+      updatedAt: new Date(Date.now()),
+    },
+  ];
 
   const deletePostMutation = api.post.delete.useMutation({
     onSettled: () => utils.post.all.invalidate(),
@@ -103,14 +121,23 @@ const Index = () => {
   return (
     <SafeAreaView className="bg-[#1F104A]">
       {/* Changes page title visible on the header */}
-      <Stack.Screen options={{ title: "Home Page" }} />
+      <Stack.Screen
+        options={{
+          title: "Home Page",
+        }}
+      />
       <View className="h-full w-full p-4">
-        <Text className="mx-auto pb-2 text-5xl font-bold text-white">
+        <Text className="mx-auto pb-2 text-4xl font-bold text-white">
           Create <Text className="text-pink-400">T3</Text> Turbo
         </Text>
 
         <Button
-          onPress={() => void utils.post.all.invalidate()}
+          onPress={
+            () => {
+              Alert.alert("Refreshing list...");
+            }
+            // void utils.post.all.invalidate()
+          }
           title="Refresh posts"
           color={"#f472b6"}
         />
@@ -122,7 +149,7 @@ const Index = () => {
         </View>
 
         <FlashList
-          data={postQuery.data}
+          data={data}
           estimatedItemSize={20}
           ItemSeparatorComponent={() => <View className="h-2" />}
           renderItem={(p) => (
@@ -132,6 +159,10 @@ const Index = () => {
             />
           )}
         />
+
+        <Link href={"/(main)/exchange" as never} asChild>
+          <Text className="my-5 text-lg text-white">Go to main dashboard</Text>
+        </Link>
 
         <CreatePost />
       </View>

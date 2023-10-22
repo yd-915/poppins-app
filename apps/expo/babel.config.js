@@ -25,6 +25,7 @@ module.exports = function (api) {
         {
           tailwindConfig: lazyLoadConfig(),
         },
+        "react-native-reanimated/plugin",
       ],
       require.resolve("expo-router/babel"),
     ],
