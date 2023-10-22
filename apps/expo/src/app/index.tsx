@@ -160,7 +160,7 @@ const Index = () => {
           )}
         />
 
-        <Link href={"/(main)/exchange" as never} asChild>
+        <Link href={"/(main)/home" as never} asChild>
           <Text className="my-5 text-lg text-white">Go to main dashboard</Text>
         </Link>
 

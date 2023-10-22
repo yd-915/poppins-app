@@ -1,12 +1,16 @@
 import React from "react";
-import { Stack } from "expo-router";
+import { TouchableOpacity } from "react-native";
+import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 import { TRPCProvider } from "~/utils/api";
 
 // This is the main layout of the app
 // It wraps your pages with the providers they need
 const RootLayout = () => {
+  const router = useRouter();
+
   return (
     <TRPCProvider>
       {/*
@@ -30,8 +34,37 @@ const RootLayout = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="(cards)"
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#1C1C1E",
+            },
+            headerLeft: () => (
+              <TouchableOpacity className="p-2" onPress={() => router.back()}>
+                <FontAwesome
+                  name="arrow-left"
+                  size={20}
+                  color={"white"}
+                  className="font-light"
+                />
+              </TouchableOpacity>
+            ),
+            headerTitleAlign: "left",
+            headerTitleStyle: {
+              color: "white",
+            },
+            headerTitle: "My cards",
+            headerRight: () => (
+              <TouchableOpacity className="mr-4 rounded-lg bg-gray-800/70 p-2">
+                <FontAwesome name="plus-circle" size={20} color={"white"} />
+              </TouchableOpacity>
+            ),
+          }}
+        />
       </Stack>
-      <StatusBar style="auto" hidden={false} />
+      <StatusBar style="auto" backgroundColor="#FFFFFF" hidden={false} />
     </TRPCProvider>
   );
 };

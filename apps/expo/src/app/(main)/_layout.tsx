@@ -38,7 +38,8 @@ export default function TabsLayout() {
           title: "Home",
           headerStyle: {
             backgroundColor: "black",
-            height: 90,
+            height: 70,
+            borderBottomColor: "black",
           },
           headerLeft: () => (
             <TouchableOpacity
@@ -52,13 +53,17 @@ export default function TabsLayout() {
             <Image
               resizeMode="cover"
               style={{
-                width: 60,
-                height: 60,
+                width: 40,
+                height: 40,
                 resizeMode: "contain",
                 alignSelf: "center",
+                // backgroundColor: "white",
+                borderRadius: 8,
+                borderWidth: 0.1,
+                borderColor: "white",
               }}
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              source={require("../../../assets/icon.png")}
+              source={require("../../../assets/icon-main-white.png")}
             />
           ),
           headerRight: () => (

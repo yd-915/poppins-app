@@ -6,12 +6,15 @@ const defineConfig = (): ExpoConfig => ({
   scheme: "expo",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "./assets/icon.png",
+  icon: "./assets/icon-main.png",
   userInterfaceStyle: "light",
   splash: {
-    image: "./assets/icon.png",
+    image: "./assets/icon-main.png",
     resizeMode: "contain",
     backgroundColor: "#1F104A",
+    paddingHorizontal: 20,
+    width: 300,
+    height: 300,
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -22,9 +25,9 @@ const defineConfig = (): ExpoConfig => ({
     supportsTablet: true,
   },
   android: {
-    package: "your.bundle.identifier",
+    package: "app.poppins.LN",
     adaptiveIcon: {
-      foregroundImage: "./assets/icon.png",
+      foregroundImage: "./assets/icon-main.png",
       backgroundColor: "#1F104A",
     },
   },
