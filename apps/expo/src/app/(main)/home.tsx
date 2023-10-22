@@ -29,7 +29,12 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
         <View className="my-4 flex flex-row items-center justify-center px-4">
-          <PillButton text="Transfer">
+          <PillButton
+            text="Transfer"
+            onPressed={() => {
+              router.push("(transfer)" as never);
+            }}
+          >
             <FontAwesome name="exchange" size={20} color={"white"} />
           </PillButton>
 

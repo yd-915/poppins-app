@@ -57,10 +57,40 @@ const RootLayout = () => {
             },
             headerTitle: "My cards",
             headerRight: () => (
-              <TouchableOpacity className="mr-4 rounded-lg bg-gray-800/70 p-2">
+              <TouchableOpacity className="rounded-lg bg-gray-800/70 p-2">
                 <FontAwesome name="plus-circle" size={20} color={"white"} />
               </TouchableOpacity>
             ),
+          }}
+        />
+        <Stack.Screen
+          name="(transfer)"
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#1C1C1E",
+            },
+            headerLeft: () => (
+              <TouchableOpacity className="p-2" onPress={() => router.back()}>
+                <FontAwesome
+                  name="arrow-left"
+                  size={20}
+                  color={"white"}
+                  className="font-light"
+                />
+              </TouchableOpacity>
+            ),
+            headerTitleAlign: "left",
+            headerTitleStyle: {
+              color: "white",
+              fontWeight: "400",
+            },
+            headerTitle: "Transfer to card",
+            // headerRight: () => (
+            //   <TouchableOpacity className="rounded-lg bg-gray-800/70 p-2">
+            //     <FontAwesome name="plus-circle" size={20} color={"white"} />
+            //   </TouchableOpacity>
+            // ),
           }}
         />
       </Stack>
