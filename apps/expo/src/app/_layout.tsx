@@ -39,7 +39,7 @@ const RootLayout = () => {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: "#1C1C1E",
+              backgroundColor: "#000000",
             },
             headerLeft: () => (
               <TouchableOpacity className="p-2" onPress={() => router.back()}>
@@ -68,7 +68,7 @@ const RootLayout = () => {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: "#1C1C1E",
+              backgroundColor: "#000000",
             },
             headerLeft: () => (
               <TouchableOpacity className="p-2" onPress={() => router.back()}>

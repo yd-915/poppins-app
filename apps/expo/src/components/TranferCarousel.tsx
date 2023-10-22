@@ -73,7 +73,7 @@ const TransferCarousel: React.FC<TransferCarouselProps> = ({
         viewabilityConfig={viewConfig}
         ref={slidesRef}
       />
-      <Paginator slides={data} scrollX={scrollX} />
+      {/* <Paginator slides={data} scrollX={scrollX} /> */}
     </View>
   );
 };
@@ -95,7 +95,7 @@ const CardItem: React.FC<{
     >
       <View
         style={{ flex: 0.5 }}
-        className="w-full items-center rounded-lg bg-blue-500"
+        className="w-full items-center rounded-lg bg-[#1C1C1E]"
       >
         <Text className="text-white">
           {
@@ -111,50 +111,50 @@ const CardItem: React.FC<{
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Paginator: React.FC<{ slides: any[]; scrollX: Animated.Value }> = ({
-  slides,
-  scrollX,
-}) => {
-  const { width } = useWindowDimensions();
-  return (
-    <View
-      style={[
-        {
-          flexDirection: "row",
-          height: 64,
-        },
-      ]}
-    >
-      {slides.map((_, i) => {
-        const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
+// const Paginator: React.FC<{ slides: any[]; scrollX: Animated.Value }> = ({
+//   slides,
+//   scrollX,
+// }) => {
+//   const { width } = useWindowDimensions();
+//   return (
+//     <View
+//       style={[
+//         {
+//           flexDirection: "row",
+//           height: 64,
+//         },
+//       ]}
+//     >
+//       {slides.map((_, i) => {
+//         const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
 
-        const dotWidth = scrollX.interpolate({
-          inputRange,
-          outputRange: [10, 20, 10],
-          extrapolate: "clamp",
-        });
+//         const dotWidth = scrollX.interpolate({
+//           inputRange,
+//           outputRange: [10, 20, 10],
+//           extrapolate: "clamp",
+//         });
 
-        const opacity = scrollX.interpolate({
-          inputRange,
-          outputRange: [0.3, 1, 0.3],
-          extrapolate: "clamp",
-        });
-        return (
-          <Animated.View
-            style={[
-              {
-                height: 10,
-                width: dotWidth,
-                borderRadius: 5,
-                backgroundColor: "green",
-                marginHorizontal: 5,
-                opacity,
-              },
-            ]}
-            key={i}
-          ></Animated.View>
-        );
-      })}
-    </View>
-  );
-};
+//         const opacity = scrollX.interpolate({
+//           inputRange,
+//           outputRange: [0.3, 1, 0.3],
+//           extrapolate: "clamp",
+//         });
+//         return (
+//           <Animated.View
+//             style={[
+//               {
+//                 height: 10,
+//                 width: dotWidth,
+//                 borderRadius: 5,
+//                 backgroundColor: "green",
+//                 marginHorizontal: 5,
+//                 opacity,
+//               },
+//             ]}
+//             key={i}
+//           ></Animated.View>
+//         );
+//       })}
+//     </View>
+//   );
+// };

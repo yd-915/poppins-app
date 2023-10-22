@@ -6,14 +6,14 @@ export default function CardsLayout() {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#1C1C1E",
+          backgroundColor: "#000000",
           // height: 60,
           // paddingHorizontal: 10,
           // paddingTop: 10,
           // paddingBottom: 15,
           // borderTopWidth: 0,
         },
-
+        headerShown: false,
         headerTitleStyle: {
           fontWeight: "bold",
         },

@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const router = useRouter();
   return (
     <SafeAreaView>
-      <View className="grid h-full w-full bg-slate-950">
+      <View className="grid h-full w-full bg-black">
         <View className="flex-1 flex-row items-center justify-between">
           <HomeHero />
           <TouchableOpacity onPress={() => router.push("(cards)" as never)}>

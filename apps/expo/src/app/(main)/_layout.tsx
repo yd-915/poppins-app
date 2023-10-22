@@ -16,7 +16,7 @@ export default function TabsLayout() {
           borderRadius: 12,
         },
         tabBarStyle: {
-          backgroundColor: "#1C1C1E",
+          backgroundColor: "#000000",
           // borderTopLeftRadius: 10,
           // borderTopRightRadius: 10,
           height: 60,
@@ -40,6 +40,7 @@ export default function TabsLayout() {
             backgroundColor: "black",
             height: 70,
             borderBottomColor: "black",
+            borderBottomWidth: 0,
           },
           headerLeft: () => (
             <TouchableOpacity

@@ -7,7 +7,7 @@ import PillButton from "~/components/Pillbutton";
 const CardsScreen = () => {
   return (
     <SafeAreaView>
-      <View className="w-full1 grid h-full bg-slate-950">
+      <View className="w-full1 grid h-full bg-black">
         <View className="flex-1 flex-row items-center justify-between">
           {/* <Text className="text-white">Cards settings</Text> */}
           <CardCarousel
